@@ -1,0 +1,118 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+:root {
+  color-scheme: dark;
+  --reddit-bg: #0b1416;
+  --reddit-card: #152226;
+  --reddit-panel: #0f1b1f;
+  --reddit-border: #2a393e;
+  --reddit-hover: #223237;
+  --reddit-text: #d7dadc;
+  --reddit-text-strong: #f2f4f5;
+  --reddit-muted: #91a0a5;
+  --reddit-orange: #ff4500;
+  --reddit-blue: #d7e7ea;
+}
+
+html { background: var(--reddit-bg); scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; background: var(--reddit-bg); color: var(--reddit-text); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+button, a, input, textarea, select { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+a { text-decoration: none; }
+.app-shell { min-height: 100vh; background: var(--reddit-bg); color: var(--reddit-text); }
+.surface-card { border: 1px solid var(--reddit-border); border-radius: 12px; background: var(--reddit-card); box-shadow: none; }
+
+.app-button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 999px; padding: 9px 17px; font-size: 12px; font-weight: 800; line-height: 1.2; transition: background .12s, color .12s, border-color .12s; }
+.app-button-primary { background: var(--reddit-blue); color: #09212a; border: 1px solid var(--reddit-blue); }
+.app-button-primary:hover { filter: brightness(1.07); }
+.app-button-secondary { background: transparent; color: var(--reddit-text-strong); border: 1px solid var(--reddit-border); }
+.app-button-secondary:hover { background: var(--reddit-hover); }
+.app-button-ghost { background: transparent; color: var(--reddit-text); border: 1px solid transparent; }
+.app-button-ghost:hover { background: var(--reddit-hover); }
+.app-button:focus-visible { outline: 2px solid #77c7d7; outline-offset: 2px; }
+.app-button[aria-disabled="true"], .app-button:disabled { opacity: .55; pointer-events: none; }
+.muted-text { color: var(--reddit-muted); }
+.site-header { height: 58px; background: #0b1416; border-bottom: 1px solid var(--reddit-border); }
+.reddit-topbar { display: grid; grid-template-columns: minmax(220px, 300px) minmax(180px, 1fr) minmax(180px, 330px); align-items: center; gap: 20px; height: 58px; width: 100%; max-width: none; margin: 0; padding: 0 22px; }
+.topbar-brand-group { display: flex; align-items: center; gap: 24px; min-width: 0; }
+.brand-mark { display: inline-flex; align-items: center; gap: 8px; min-width: 0; color: var(--reddit-text-strong); }
+.brand-icon { display: inline-flex; width: 30px; height: 30px; align-items: center; justify-content: center; border-radius: 50%; background: var(--reddit-orange); color: white; font-size: 14px; font-weight: 900; }
+.brand-image { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; }
+.brand-wordmark { overflow: hidden; max-width: 150px; color: var(--reddit-text-strong); text-overflow: ellipsis; white-space: nowrap; font-size: 18px; font-weight: 800; letter-spacing: -.04em; }
+.topbar-explore { display: inline-flex; align-items: center; gap: 7px; color: var(--reddit-text); font-size: 12px; white-space: nowrap; }
+.topbar-explore svg { color: var(--reddit-muted); flex: 0 0 auto; }
+.topbar-explore:hover { color: var(--reddit-text-strong); }
+.topbar-search { display: flex; align-items: center; gap: 10px; height: 40px; min-width: 0; border: 1px solid var(--reddit-border); border-radius: 999px; background: #152226; padding: 0 15px; }
+.topbar-search:focus-within { border-color: #6b9099; }
+.topbar-search svg { width: 17px; height: 17px; flex: 0 0 17px; color: var(--reddit-muted); }
+.topbar-search input { width: 100%; min-width: 0; padding: 0; border: 0; outline: 0; background: transparent; color: var(--reddit-text-strong); font-size: 13px; }
+.topbar-search input::placeholder { color: #91a0a5; }
+.topbar-actions { display: flex; align-items: center; justify-content: flex-end; gap: 8px; min-width: 0; }
+.topbar-icon-link { display: inline-flex; width: 36px; height: 36px; flex: 0 0 36px; align-items: center; justify-content: center; border-radius: 50%; color: var(--reddit-text); font-size: 18px; }
+.topbar-icon-link:hover { background: var(--reddit-hover); color: var(--reddit-text-strong); }
+.owner-top-link { color: #ff9e83; }
+.signout-link { background: transparent; border: 0; }
+.topbar-profile { display: inline-flex; align-items: center; gap: 8px; min-width: 0; max-width: 150px; border: 1px solid var(--reddit-border); border-radius: 999px; padding: 4px 9px 4px 4px; color: var(--reddit-text); }
+.topbar-profile:hover { border-color: #53676d; background: rgba(255,255,255,.025); }
+.avatar-mini { display: inline-flex; height: 28px; width: 28px; flex: 0 0 28px; align-items: center; justify-content: center; border-radius: 50%; background: #ffb000; color: #18252a; font-weight: 800; }
+.topbar-user-label { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 11px; font-weight: 700; }
+.profile-chevron { color: var(--reddit-muted); flex: 0 0 auto; }
+main.relative { padding-top: 12px; }
+footer { color: var(--reddit-muted) !important; border-color: var(--reddit-border) !important; }
+.home-footer-hidden { display: none; }
+footer a:hover { color: var(--reddit-text-strong); }
+::selection { background: rgba(255,69,0,.35); color: #fff; }
+
+/* Buttons keep the application styles consistent with the Reddit-inspired layout. */
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 2px solid #77c7d7; outline-offset: 2px; }
+
+@media (max-width: 1000px) {
+  .reddit-topbar { grid-template-columns: minmax(140px, 220px) minmax(180px, 1fr) auto; gap: 12px; padding: 0 12px; }
+  .topbar-explore { display: none; }
+  .topbar-user-label { display: none; }
+  .topbar-profile { padding-right: 5px; }
+}
+@media (max-width: 620px) {
+  .site-header, .reddit-topbar { height: 54px; }
+  .reddit-topbar { grid-template-columns: auto minmax(0, 1fr) auto; gap: 8px; padding: 0 9px; }
+  .brand-wordmark { display: none; }
+  .brand-icon, .brand-image { width: 28px; height: 28px; }
+  .topbar-search { height: 36px; padding: 0 10px; gap: 7px; }
+  .topbar-search input { font-size: 11px; }
+  .topbar-actions { gap: 2px; }
+  .topbar-icon-link { width: 31px; height: 31px; flex-basis: 31px; font-size: 16px; }
+  .topbar-profile { border: 0; padding: 0; }
+  .profile-chevron { display: none; }
+  .topbar-actions .brand-mark { display: none; }
+}
+
+
+/* Full-width, mobile-first navigation for the forum experience. */
+.mobile-bottom-nav { display: none; }
+@media (max-width: 760px) {
+  main.relative { padding-bottom: calc(78px + env(safe-area-inset-bottom)); }
+  .mobile-bottom-nav {
+    position: fixed; z-index: 100; inset: auto 0 0; display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 2px;
+    padding: 8px 8px calc(7px + env(safe-area-inset-bottom));
+    border-top: 1px solid var(--reddit-border); background: rgba(11,20,22,.96);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  }
+  .mobile-bottom-nav a { display: flex; min-width: 0; flex-direction: column; align-items: center; justify-content: center; gap: 3px; border-radius: 8px; padding: 5px 2px; color: var(--reddit-muted); font-size: 9px; font-weight: 700; }
+  .mobile-bottom-nav a:hover, .mobile-bottom-nav a.mobile-nav-active { color: var(--reddit-text-strong); background: rgba(255,255,255,.045); }
+  .mobile-bottom-nav .mobile-nav-create { margin: 0 8px; border: 1px solid rgba(255,69,0,.3); background: rgba(255,69,0,.12); color: #ff9875; }
+  .mobile-bottom-nav .mobile-nav-create:hover { background: rgba(255,69,0,.2); }
+  .reddit-topbar { padding-left: 10px; padding-right: 10px; }
+}
+@media (max-width: 420px) {
+  .topbar-actions { gap: 0; }
+  .topbar-actions .topbar-icon-link[aria-label="Messages"] { display: none; }
+  .reddit-topbar { grid-template-columns: auto minmax(0, 1fr) auto; }
+  .brand-mark { gap: 0; }
+  .topbar-search { border-radius: 11px; }
+}
+
+.topbar-feature-link { gap:5px; }
+@media(max-width:820px){.topbar-feature-link span{display:none}.topbar-feature-link{padding-inline:9px}}
